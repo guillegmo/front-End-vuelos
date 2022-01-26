@@ -1,0 +1,127 @@
+<div class="container">
+    <div class="form-group">
+        <a style="cursor: pointer; color: blue" (click)="actulizarPagina()">Cerrar Sesión</a>
+    </div>
+    <br>
+    <h1 style="text-align:center;">Detalle de vuelos</h1>
+    <hr>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id Vuelo</th>
+            <th scope="col">Ciudad Origen</th>
+            <th scope="col">Ciuad Destino</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hora Salida</th>
+            <th scope="col">Hora Llegada</th>
+            <th scope="col">Numero Vuelo</th>
+            <th scope="col">Aerolinea</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Editar Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let registro of vuelos; let i = index; i">
+            <th>{{ registro.idVuelo }}</th>
+            <td>{{ registro.ciudadOrigen }}</td>
+            <td>{{ registro.ciudadDestino}}</td>
+            <td>{{ registro.fecha }}</td>
+            <td>{{ registro.horaSalida }}</td>
+            <td>{{ registro.horaLlegada }}</td>
+            <td>{{ registro.numeroVuelo }}</td>
+            <td>{{ registro.aerolinea }}</td>
+            <td>{{ registro.estado }}</td>
+            <td> 
+              <button class="btn btn success" (click)="openXL(editarVuelo)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: green;transform: msFilter"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"></path><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"></path></svg></button>
+              
+              <ng-template #editarVuelo let-modal>
+                <div class="modal-header">
+                  <h2 class="modal-title" id="exampleModalLabel">Editar</h2>
+                  <button type="button" class="btn-close" aria-label="Close" (click)="cerrarModal()"></button>
+                </div>
+                <div class="modal-body">
+                        
+                  <div class="row">
+                    <div class="col">
+                        <input type="text" id="idVuelo" class="form-control" [(ngModel)]="registro.idVuelo" disabled>
+                    </div>
+                    <div class="col">
+                        <h4>Ciudad Origen</h4>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="ciudadOrigen" [(ngModel)]="registro.ciudadOrigen" disabled>
+                    </div>
+                    <div class="col">
+                        <h4>Ciudad Destino</h4>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="ciudadDestino" [(ngModel)]="registro.ciudadDestino" disabled>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <h4>Fecha</h4>
+                    </div>
+                    <div class="col">
+                        <input type="date" id="fecha" class="form-control" [(ngModel)]="registro.fecha" disabled>
+                    </div>
+                    <div class="col">
+                        <h4>Hora Salida</h4>
+                    </div>
+                    <div class="col">
+                        <input type="time" id="horaSalida" class="form-control" [(ngModel)]="registro.horaSalida" disabled>
+                    </div>
+                    <div class="col">
+                        <h4>Hora Llegada</h4>
+                    </div>
+                    <div class="col">
+                        <input type="time" id="horaLlegada" class="form-control" [(ngModel)]="registro.horaLlegada" disabled>
+                    </div>
+                    <div class="col"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <h4>Numero Vuelo</h4>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="numeroVuelo" class="form-control" [(ngModel)]="registro.numeroVuelo" disabled>
+                    </div>
+                    <div class="col">
+                        <h4>Aerolinea</h4>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="aerolinea" [(ngModel)]="registro.aerolinea" disabled>
+                    </div>
+                    <div class="col">
+                        <h4>Estado</h4>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" id="estado" aria-label="Default select example" [(ngModel)]="registro.estado">
+                            <option selected>Estado de Vuelo</option>
+                            <option>En tramite</option>
+                            <option>Suspendido</option>
+                            <option>Retrasado</option>
+                            <option>A tiempo</option>
+                            <option>En sala</option>
+                            <option>Abordando</option>
+                            <option>Salio</option>
+                            <option>En transito</option>
+                            <option>Llego</option>
+                            <option>Cerrado</option>
+                        </select>
+                    </div>
+                </div>
+                
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" (click)="obtenerDatosActualizar()">Editar</button>                  
+                </div>
+              </ng-template>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

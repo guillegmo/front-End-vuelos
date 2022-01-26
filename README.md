@@ -1,27 +1,40 @@
-# Vuelos
+La aplicacion fue elaborada de la siguiente forma:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.4.
+Front End: Angular cli version 13.1.4
+Back End: .Net Core
+Base de datos: MySQL
 
-## Development server
+Se anexa front End, Back End y base de datos en el archivo Prueba Tecnica Carvajal
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Usuarios para Acceso a la aplicacion
 
-## Code scaffolding
+Usuario: admin
+Contraseña: 123456
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Usuario: auxiliar
+Contraseña: 654321
 
-## Build
+Usuario admin
+El usuario admin permite crear, editar, eliminar y lista los vuelos.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Usuario auxiliar
+El usuario auxiliar permite listar los vuelos y unicamente edita el estado de dicho vuelo.
 
-## Running unit tests
+Base de datos
+Consta de 2 tablas las cuales son usuarios y vuelos para
+la tabla usuarios tiene los siguientes datos:
+-idUsuario
+-nombreUsuario
+-password
+-rol
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+la tabla vuelos tiene los siguientes datos:
+-idVuelo
+-ciudadOrigen
+-ciudadDestino
+-fecha
+-horaSalida
+-horaLlegad
+-numeroVuelo
+-aerolinea
+-estado

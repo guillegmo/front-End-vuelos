@@ -1,0 +1,31 @@
+<div class="container" *ngIf="log">
+    <div class="row" style="width: 50%">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center" id="tarjeta" style="padding: 20px">
+                <h3>Login</h3>
+                <br>            
+                <div class="form-group">
+                    <input type="text" class="form-control" id="usuario" placeholder="Usuario" [(ngModel)]="nombreUsuario">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Contraseña" [(ngModel)]="password">
+                </div>
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-primary mr-2" (click)="obtenerVuelos()">Ingresar</button>
+                </div>
+                <br>
+                <div class="form-group">
+                    <p style="color: red">{{ mensaje }}</p>
+                </div>         
+            </div>
+        </div>        
+    </div>
+</div>
+<div *ngIf="menu && usuario.rol == 'administrador'">
+    <app-programar-vuelo></app-programar-vuelo>
+</div>
+<div *ngIf="menu && usuario.rol == 'auxiliar'">
+    '<app-ver-detalle-vuelo></app-ver-detalle-vuelo>
+</div>
