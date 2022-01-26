@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   password = "";
   mensaje = "";
 
-  obtenerVuelos() {   
+  obtenerUsuario() {   
     this.dataServices.cargarUsuario((document.getElementById('usuario') as HTMLInputElement).value, (document.getElementById('password') as HTMLInputElement).value).subscribe(
       (res) => {
         this.usuario = res;        

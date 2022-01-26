@@ -18,6 +18,8 @@ export class DataServices{
         this.myApiUsuarios = '/api/usuario';
         
     }    
+    
+    //peticion api vuelo
 
     cargarVuelos(): Observable<any>{
         return this.httpClient.get(`${this.myAppUrl+this.myApiVuelos}`);
@@ -39,6 +41,7 @@ export class DataServices{
         return this.httpClient.put(`${this.myAppUrl+this.myApiVuelos}`, vuelo);
     }
 
+    //peticion api usuario
 
     cargarUsuario(nombreUsuario: string, password: string): Observable<any>{
         return this.httpClient.get(`${this.myAppUrl+this.myApiUsuarios}/${nombreUsuario},${password}`);
