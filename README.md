@@ -38,3 +38,10 @@ la tabla vuelos tiene los siguientes datos:
 -numeroVuelo
 -aerolinea
 -estado
+
+Conexion Base de Datos 
+
+"AllowedHosts": "*",
+  "ConnectionStrings": {
+    "MySqlConnection" : "server=localhost;port=3306;database=vuelos;uid=guillermomontoya;"
+  }
